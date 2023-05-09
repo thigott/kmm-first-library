@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "MyFirstKmmLibrary"
 include(":shared")
+include(":data")
+include(":domain")

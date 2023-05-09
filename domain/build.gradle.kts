@@ -1,7 +1,6 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("maven-publish")
 }
 
 kotlin {
@@ -12,25 +11,21 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "shared"
+            baseName = "domain"
         }
     }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(libs.bundles.ktor)
                 implementation(libs.bundles.koin)
-
-                api(project(":domain"))
-                api(project(":data"))
             }
         }
         val commonTest by getting {
@@ -73,26 +68,5 @@ android {
     compileSdk = 33
     defaultConfig {
         minSdk = 24
-    }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
-}
-
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            groupId = "com.github.thigott"
-            artifactId = "kmm-first-library"
-            version = "1.0.0"
-
-            afterEvaluate {
-                from(components["release"])
-            }
-        }
     }
 }
