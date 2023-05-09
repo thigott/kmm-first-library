@@ -28,7 +28,7 @@ kotlin {
             dependencies {
                 implementation(libs.bundles.koin)
                 implementation(libs.bundles.ktor)
-                api(project(":domain"))
+                implementation(project(":domain"))
             }
         }
         val commonTest by getting {
@@ -77,20 +77,6 @@ android {
         singleVariant("release") {
             withSourcesJar()
             withJavadocJar()
-        }
-    }
-}
-
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            groupId = "com.github.thigott"
-            artifactId = "kmm-first-library"
-            version = "1.0.0"
-
-            afterEvaluate {
-                from(components["release"])
-            }
         }
     }
 }

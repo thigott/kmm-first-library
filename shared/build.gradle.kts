@@ -29,8 +29,8 @@ kotlin {
                 implementation(libs.bundles.ktor)
                 implementation(libs.bundles.koin)
 
-                api(project(":domain"))
-                api(project(":data"))
+                implementation(project(":domain"))
+                implementation(project(":data"))
             }
         }
         val commonTest by getting {
@@ -87,7 +87,7 @@ publishing {
     publications {
         register<MavenPublication>("release") {
             groupId = "com.github.thigott"
-            artifactId = "kmm-first-library"
+            artifactId = "domain"
             version = "1.0.0"
 
             afterEvaluate {

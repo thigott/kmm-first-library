@@ -78,17 +78,3 @@ android {
         }
     }
 }
-
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            groupId = "com.github.thigott"
-            artifactId = "kmm-first-library"
-            version = "1.0.0"
-
-            afterEvaluate {
-                from(components["release"])
-            }
-        }
-    }
-}
