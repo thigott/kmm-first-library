@@ -1,7 +1,6 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("maven-publish")
 }
 
 kotlin {
@@ -71,12 +70,5 @@ android {
     compileSdk = 33
     defaultConfig {
         minSdk = 24
-    }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
     }
 }
