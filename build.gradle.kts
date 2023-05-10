@@ -19,7 +19,7 @@ subprojects {
             publishing {
                 publications {
                     register<MavenPublication>("release") {
-                        groupId = "MyFirstKmmLibrary"
+                        groupId = "com.github.thigott:${project.name}"
                         version = "3.0.0"
 
                         afterEvaluate {
