@@ -3,7 +3,7 @@ plugins {
     id("com.android.library")
 }
 
-version = "3.0.0"
+version = "4.0.0"
 
 kotlin {
     android {

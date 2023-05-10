@@ -20,7 +20,7 @@ subprojects {
                 publications {
                     register<MavenPublication>("release") {
                         groupId = "com.github.thigott"
-                        version = "3.0.0"
+                        version = "4.0.0"
 
                         afterEvaluate {
                             from(components["release"])
