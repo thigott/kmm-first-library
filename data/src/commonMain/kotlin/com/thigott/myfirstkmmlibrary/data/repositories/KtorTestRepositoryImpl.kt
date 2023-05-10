@@ -13,7 +13,7 @@ class KtorTestRepositoryImpl(
 
     override suspend fun getKtorTest(): Flow<String> = flow {
         emit(
-            httpClient.get("https://catfact.ninja/fact").bodyAsText()
+            httpClient.get("https://ktor.io/docs/").bodyAsText()
         )
     }
 }
