@@ -1,7 +1,6 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("maven-publish")
 }
 
 kotlin {
@@ -29,8 +28,8 @@ kotlin {
                 implementation(libs.bundles.ktor)
                 implementation(libs.bundles.koin)
 
-                implementation(project(":domain"))
-                implementation(project(":data"))
+                api(project(":domain"))
+                api(project(":data"))
             }
         }
         val commonTest by getting {
@@ -84,20 +83,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":domain"))
-    implementation(project(":data"))
-}
-
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            groupId = "com.github.thigott"
-            artifactId = "my-first-kmm-library"
-            version = "2.0.0"
-
-            afterEvaluate {
-                from(components["release"])
-            }
-        }
-    }
+    api(project(":domain"))
+    api(project(":data"))
 }

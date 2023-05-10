@@ -27,7 +27,7 @@ kotlin {
             dependencies {
                 implementation(libs.bundles.koin)
                 implementation(libs.bundles.ktor)
-                implementation(project(":domain"))
+                api(project(":domain"))
             }
         }
         val commonTest by getting {
@@ -65,10 +65,21 @@ kotlin {
     }
 }
 
+dependencies {
+    api(project(":domain"))
+}
+
 android {
     namespace = "com.thigott.myfirstkmmlibrary"
     compileSdk = 33
     defaultConfig {
         minSdk = 24
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 }
