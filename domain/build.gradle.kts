@@ -70,11 +70,4 @@ android {
     defaultConfig {
         minSdk = 24
     }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
 }

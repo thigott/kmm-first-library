@@ -1,10 +1,8 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("maven-publish")
 }
-
-group = "com.thigott.github.shared"
-version = "1.0.7"
 
 kotlin {
     android {
@@ -81,6 +79,25 @@ android {
         singleVariant("release") {
             withSourcesJar()
             withJavadocJar()
+        }
+    }
+}
+
+dependencies {
+    implementation(project(":domain"))
+    implementation(project(":data"))
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.thigott"
+            artifactId = "my-first-kmm-library"
+            version = "2.0.0"
+
+            afterEvaluate {
+                from(components["release"])
+            }
         }
     }
 }
