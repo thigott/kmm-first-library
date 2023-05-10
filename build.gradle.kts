@@ -18,8 +18,9 @@ subprojects {
         plugins.withId("com.android.library") {
             publishing {
                 publications {
-                    register<MavenPublication>(project.name) {
+                    register<MavenPublication>("release") {
                         groupId = "MyFirstKmmLibrary"
+                        version = "3.0.0"
 
                         afterEvaluate {
                             from(components["release"])
